@@ -20,16 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
-        // build participants list markup
-        let participantsMarkup = "";
-        if (details.participants && details.participants.length > 0) {
-          participantsMarkup = `
+        // build participants section (always shown)
+        let participantsMarkup = `
+          <div class="participants-section">
             <p><strong>Participants:</strong></p>
-            <ul class="participant-list">
-              ${details.participants.map(p => `<li>${p}</li>`).join("")}
-            </ul>
-          `;
-        }
+            ${details.participants && details.participants.length > 0
+              ? `<ul class="participant-list">${details.participants
+                  .map((p) => `<li>${p}</li>`)
+                  .join("")}</ul>`
+              : `<p class="no-participants">No participants yet</p>`}
+          </div>
+        `;
 
         activityCard.innerHTML = `
           <h4>${name}</h4>
