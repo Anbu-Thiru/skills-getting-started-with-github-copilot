@@ -29,7 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
             ${details.participants && details.participants.length > 0
               ? `<ul class="participant-list">${details.participants
                   .map((p) =>
-                    `<li class="participant-item"><span class="participant-name">${p}</span><button class="remove-btn" data-activity="${name}" data-email="${p}" aria-label="Remove ${p}">&times;</button></li>`
+                    `<li class="participant-item"><span class="participant-name">${p}</span><button class="remove-btn" data-activity="${name}" data-email="${p}" aria-label="Remove ${p}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14">
+                          <path fill="currentColor" d="M3 6h18v2H3V6zm2 3h14l-1 12H6L5 9zm3-6h8l1 2H7L8 3z"/>
+                        </svg>
+                      </button></li>`
                   )
                   .join("")}</ul>`
               : `<p class="no-participants">No participants yet</p>`}
